@@ -1,0 +1,4 @@
+-- settings.sql
+CREATE DATABASE dog;
+CREATE USER doguser WITH PASSWORD 'dog';
+GRANT ALL PRIVILEGES ON DATABASE dog TO doguser;
