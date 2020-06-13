@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = os.environ['DEBUG_VALUE'] == 'True' 
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,8 +86,20 @@ DATABASES = {
 }
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
-    'http://localhost:3000',
     'http://rocky-wave-36222.herokuapp.com',
+    'http://localhost:3000',
+]
+CORS_ALLOW_HEADERS = [
+    'Access-Control-Allow-Origin',
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
 ]
 
 
