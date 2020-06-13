@@ -5,7 +5,7 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('dog.urls')),
+    path('api', include('dog.urls')),
     path('', include('profiles.urls')),
 
 ]
