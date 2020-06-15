@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth import get_user_model
 from profiles.models import Profile
 
@@ -10,6 +11,9 @@ class Post(models.Model):
     body = models.TextField(max_length=30)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    comments = ArrayField(models.TextField(max_length=300, default="blank"), default=list, blank=True, null=True)
+    
+    
     
     
     
