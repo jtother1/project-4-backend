@@ -8,10 +8,10 @@ from profiles.models import Profile
 class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='posts')
     title = models.CharField(max_length=100)
-    body = models.TextField(max_length=30)
+    body = models.TextField(max_length=300)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    comments = ArrayField(models.TextField(max_length=300, default="blank"), default=list, blank=True, null=True)
+    
     
     
     
@@ -26,7 +26,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='comments',on_delete=models.CASCADE)
     body = models.TextField(max_length=300, default="blank")
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
