@@ -92,7 +92,7 @@ DATABASES = {
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://rocky-wave-36222.herokuapp.com',
-    'http://localhost:3000',
+    
 ]
 CORS_ALLOW_HEADERS = [
     'Access-Control-Allow-Origin',
