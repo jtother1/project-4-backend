@@ -24,12 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
+
 
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
+# Application definitionexit
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,10 +42,10 @@ INSTALLED_APPS = [
     'dog',
     'rest_framework',
     'users',
-    'corsheaders',
     'django_extensions',
     'profiles',
     'rest_framework.authtoken',
+    'corsheaders',
     
 ]
 
@@ -143,9 +144,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
 
 
 
@@ -167,8 +169,8 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=2),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
 

@@ -2,10 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from .serializers import UserSerializer
-# from .models import User
 from rest_framework.views import APIView
 from rest_framework import status
-# from rest_framework.permissions import AllowAny
 from django.contrib.auth import get_user_model
 User = get_user_model()
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -13,7 +11,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 # Create your views here.
 class RegistrationAPIView(APIView):
     
-    permission_classes = (permissions.AllowAny),
+    permission_classes = (permissions.AllowAny,)
     serializer_class = UserSerializer
 
     def get(self, request, format=None):

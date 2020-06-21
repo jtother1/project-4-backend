@@ -6,7 +6,7 @@ from profiles.models import Profile
 
 # Create your models here.
 class Post(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='posts')
+    user = models.TextField(max_length=300, default="blank")
     title = models.CharField(max_length=100)
     body = models.TextField(max_length=300)
     updated = models.DateTimeField(auto_now=True)
@@ -25,7 +25,7 @@ class Post(models.Model):
         return self.comment_set.all().count()
 
 class Comment(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.TextField(max_length=300, default="blank")
     post = models.ForeignKey(Post, related_name='comments',on_delete=models.CASCADE)
     body = models.TextField(max_length=300, default="blank")
     updated = models.DateTimeField(auto_now=True)
@@ -35,7 +35,7 @@ class Comment(models.Model):
     
 
     def __str__(self):
-        return 'Comment {} by {}'.format(self.body, self.user)
+        return '{}: {}'.format(self.user, self.body )
 
 
 
